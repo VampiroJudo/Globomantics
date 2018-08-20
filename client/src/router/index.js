@@ -20,17 +20,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/login',
       name: 'Login',
       component: Login
     },
     {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/',
+      path: '/about',
       name: 'About',
       component: About
     },
