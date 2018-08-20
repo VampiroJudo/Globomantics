@@ -2,14 +2,13 @@
   <div>
       <h2>EditTransactions</h2>
   </div>
-<template>
+</template>
 
-  <script>
-  export default {
+<script>
+export default {
+}
+</script>
 
-  }
-  </script>
+<style>
 
-  <style>
-
-  </style>
+</style>

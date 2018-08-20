@@ -1,5 +1,5 @@
 <template>
   <div>
-      <h2>Login</h2>
+      <h2>Transactions</h2>
   </div>
 </template>

@@ -4,20 +4,20 @@
       <transactions></transactions>
       <edit-transactions></edit-transactions>
   </div>
-<template>
+</template>
 
-  <script>
-  import Transactions from './Transactions.vue'
-  import EditTransactions from './EditTransactions.vue'
+<script>
+import Transactions from './Transactions.vue'
+import EditTransactions from './EditTransactions.vue'
 
-  export default {
-      components: {
-        Transactions,
-        EditTransactions
-      }
+export default {
+  components: {
+    Transactions,
+    EditTransactions
   }
-  </script>
+}
+</script>
 
-  <style>
+<style>
 
-  </style>
+</style>
