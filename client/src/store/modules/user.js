@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import bcrypt from 'bcryptjs'
 
 const state = {
   email: '',
@@ -21,8 +22,10 @@ const actions = {
       .then((resp) => {
         let data = resp.data
         if (data && data.length > 0) {
-          // Test password entered (payload) against user object
-          if (data[0].password === payload.password) {
+
+          const pwdHash = data[0].password
+          if (bcrypt.compareSync(payload.password, pwdHash)) {
+            const user =data[0]
             payload.userId = data[0]._id
             payload.first = user.first
             payload.last = user.last
@@ -38,14 +41,18 @@ const actions = {
       })
   },
   updateUserProfile ({ commit }, payload) {
-    //TODO : encrypt the user's password
-    Vue.axios.put('./user' + this.state.user.userId, payload)
-      .then(resp) => {
-        console.log(resp)
-      })
-      .catch(err) => {
-        console.log(err)
-      })
+    bcrypt.hash(payload.password, 8, (err, hash) => {
+      if (!err) {
+        payload.password = hash
+        Vue.axios.put('./user' + this.state.user.userId, payload)
+          .then(resp) => {
+            console.log(resp)
+          })
+          .catch(err) => {
+            console.log(err)
+          })
+      }
+    })
   }
 }
 
